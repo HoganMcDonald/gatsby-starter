@@ -1,6 +1,6 @@
 # Gatsby Netlify Custom Starter
 
-This is based largely off of the starter file found here. I just found that it came with things that I either didn't need or were a little too general purpose for how I like to work. Further I wanted an opportunity to learn the technology a little better.
+This is based largely off of the starter file found [here](https://github.com/robertcoopercode/gatsby-netlify-cms). I just found that it came with things that I either didn't need or were a little too general purpose for how I like to work. Further I wanted an opportunity to learn the technology a little better.
 
 ## Requirements
 
@@ -10,8 +10,9 @@ This is based largely off of the starter file found here. I just found that it c
 
 ## Setup
 
-`yarn install`
-`yarn start`
+1. grep codebase for any instance of `changeme` and replace with relevent data.
+1. `yarn install`
+1. `yarn start`
 
 ## deployment
 
