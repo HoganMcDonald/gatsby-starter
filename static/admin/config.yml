@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/img
+public_folder: /img
+
+display_url: changeme
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'src/pages/home/index.md'
+        label: 'Home'
+        name: 'home'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'home-page',
+            }
+          - {
+              label: SEO,
+              name: seo,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: string },
+                ],
+            }
