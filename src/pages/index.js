@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
+import Layout from '../components/Layout';
+
 export const HomePageTemplate = ({ home }) => (
   <section>
     <h1>{home.seo.title}</h1>
@@ -19,14 +21,14 @@ class HomePage extends React.Component {
     } = home;
 
     return (
-      <>
+      <Layout>
         <Helmet>
           <meta name="title" content={seoTitle} />
           <meta name="description" content={seoDescription} />
           <title>{browserTitle}</title>
         </Helmet>
         <HomePageTemplate home={home} />
-      </>
+      </Layout>
     );
   }
 }
