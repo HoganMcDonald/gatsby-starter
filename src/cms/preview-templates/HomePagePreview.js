@@ -11,8 +11,6 @@ const AboutPagePreview = ({ entry, widgetFor }) => {
     }
   };
 
-  debugger;
-
   return <HomePageTemplate home={home} />;
 };
 
