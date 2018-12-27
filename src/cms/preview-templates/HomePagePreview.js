@@ -5,9 +5,9 @@ import { HomePageTemplate } from '../../pages/index';
 const AboutPagePreview = ({ entry, widgetFor }) => {
   const home = {
     seo: {
-      title: 'asdf',
-      description: 'asdf',
-      browserTitle: 'asdf'
+      title: entry.getIn(['data', 'title']),
+      description: entry.getIn(['data', 'description']),
+      browserTitle: entry.getIn(['data', 'browserTitle'])
     }
   };
 
