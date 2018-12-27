@@ -4,11 +4,11 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import Layout from '../components/Layout';
+import Hero from '../components/Hero';
 
 export const HomePageTemplate = ({ home }) => (
   <section>
-    <h1>{home.seo.title}</h1>
-    <p>{home.seo.description}</p>
+    <Hero title={home.seo.title} subTitle={home.seo.description} />
   </section>
 );
 
