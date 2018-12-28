@@ -60,7 +60,7 @@ const Button = styled.button`
   border: none;
   background: none;
   line-height: 0;
-  cursor: button;
+  cursor: pointer;
   color: ${light};
 
   &:focus {
@@ -86,7 +86,7 @@ class AnnouncementBar extends Component {
   }
 
   render() {
-    const { message } = this.props;
+    const { message, linkURL } = this.props;
 
     return (
       <Bar role="alert" out={!this.state.show}>
@@ -101,7 +101,8 @@ class AnnouncementBar extends Component {
 
 AnnouncementBar.propTypes = {
   wait: PropTypes.number.isRequired,
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
+  linkURL: PropTypes.string
 };
 
 export default AnnouncementBar;

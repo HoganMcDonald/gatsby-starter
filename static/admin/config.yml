@@ -9,6 +9,27 @@ public_folder: /img
 display_url: changeme
 
 collections:
+  - name: 'navigation'
+    label: 'Navigation'
+    files:
+      files:
+        - file: 'src/pages/announcementBar/index.md'
+          label: 'Announcement Bar'
+          name: 'announcementBar'
+          fields:
+            - {
+                label: 'Template Key',
+                name: 'templateKey',
+                widget: 'hidden',
+                default: 'announcement-bar',
+              }
+            - { label: Message, name: message, widget: string }
+            - {
+                label: Link,
+                name: linkURL,
+                widget: string,
+                hint: 'Use a relative URL (e.g. /about) if the link is an internal link.',
+              }
   - name: 'pages'
     label: 'Pages'
     files:

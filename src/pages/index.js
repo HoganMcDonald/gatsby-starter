@@ -17,11 +17,14 @@ class HomePage extends React.Component {
     const { data } = this.props;
     const { frontmatter: home } = data.homePageData.edges[0].node;
     const {
+      frontmatter: announcementBar
+    } = data.announcementBarData.edges[0].node;
+    const {
       seo: { title: seoTitle, description: seoDescription, browserTitle }
     } = home;
 
     return (
-      <Layout>
+      <Layout announcementBar={announcementBar}>
         <Helmet>
           <meta name="title" content={seoTitle} />
           <meta name="description" content={seoDescription} />
@@ -60,5 +63,6 @@ export const pageQuery = graphql`
         }
       }
     }
+    ...LayoutFragment
   }
 `;
