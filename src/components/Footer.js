@@ -21,7 +21,7 @@ const SocialLinks = styled.div``;
 
 class Footer extends PureComponent {
   render() {
-    const { socialUrls = [] } = this.props;
+    const { socialUrls = [], copyrightHolder } = this.props;
 
     return (
       <FooterContainer>
@@ -30,7 +30,7 @@ class Footer extends PureComponent {
             {socialUrls.map((social, i) => (
               <SocialIcon
                 key={i}
-                url={social}
+                url={social.linkURL}
                 fgColor={light}
                 bgColor={primary}
                 style={{ height: '2.5rem', width: '2.5rem', margin: '0.5rem' }}
@@ -39,7 +39,9 @@ class Footer extends PureComponent {
             ))}
           </SocialLinks>
         )}
-        <Copyright>Copyright &copy; {new Date().getFullYear()}</Copyright>
+        <Copyright>
+          Copyright &copy; {new Date().getFullYear()} {copyrightHolder}
+        </Copyright>
       </FooterContainer>
     );
   }

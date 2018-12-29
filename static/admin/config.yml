@@ -13,32 +13,69 @@ collections:
     label: 'Navigation'
     files:
       files:
-        - file: "src/pages/navbar/index.md"
-        label: "Navbar"
-        name: "navbar"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "navbar" }
-          - {
-              label: "Logo Image",
-              name: "logoImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - {
-              label: "Menu Items",
-              name: "menuItems",
-              widget: "list",
-              fields:
-                [
-                  { label: "Label", name: "label", widget: "string" },
-                  { label: "Link Type", name: "linkType", widget: "select", options: ["internal", "external"] },
-                  { label: "Link URL", name: "linkURL", widget: "string", hint: "Use a relative URL (e.g. /about) if the link is an internal link." },
-                ],
-            }
+        - file: 'src/pages/navbar/index.md'
+          label: 'Navbar'
+          name: 'navbar'
+          fields:
+            - {
+                label: 'Template Key',
+                name: 'templateKey',
+                widget: 'hidden',
+                default: 'navbar',
+              }
+            - {
+                label: 'Logo Image',
+                name: 'logoImage',
+                widget: 'object',
+                fields:
+                  [
+                    { label: 'Image', name: 'image', widget: 'image' },
+                    {
+                      label: 'Image Description',
+                      name: 'imageAlt',
+                      widget: 'string',
+                    },
+                  ],
+              }
+            - {
+                label: 'Menu Items',
+                name: 'menuItems',
+                widget: 'list',
+                fields:
+                  [
+                    { label: 'Label', name: 'label', widget: 'string' },
+                    {
+                      label: 'Link Type',
+                      name: 'linkType',
+                      widget: 'select',
+                      options: ['internal', 'external'],
+                    },
+                    {
+                      label: 'Link URL',
+                      name: 'linkURL',
+                      widget: 'string',
+                      hint: 'Use a relative URL (e.g. /about) if the link is an internal link.',
+                    },
+                  ],
+              }
+        - file: 'src/pages/footer/index.md'
+          label: 'Footer'
+          name: 'footer'
+          fields:
+            - {
+                label: 'Template Key',
+                name: 'templateKey',
+                widget: 'hidden',
+                default: 'footer',
+              }
+            - {
+                label: 'Social Links',
+                name: 'socialUrls',
+                widget: 'list',
+                fields:
+                  [{ label: 'Link URL', name: 'linkURL', widget: 'string' }],
+              }
+            - { label: Copyright Holder, name: copyrightHolder, widget: string }
         - file: 'src/pages/announcementBar/index.md'
           label: 'Announcement Bar'
           name: 'announcementBar'

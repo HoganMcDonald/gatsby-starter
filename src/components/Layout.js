@@ -17,13 +17,13 @@ const Main = styled.main`
 
 class Layout extends PureComponent {
   render() {
-    const { children, announcementBar, navBar } = this.props;
+    const { children, announcementBar, navBar, footer } = this.props;
     return (
       <Container>
         <AnnouncementBar wait={2000} {...announcementBar} />
         <NavBar {...navBar} />
         <Main>{children}</Main>
-        <Footer />
+        <Footer {...footer} />
       </Container>
     );
   }
@@ -40,6 +40,21 @@ export const query = graphql`
           frontmatter {
             message
             linkURL
+          }
+        }
+      }
+    }
+    footerData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "footer" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            socialUrls {
+              linkURL
+            }
+            copyrightHolder
           }
         }
       }

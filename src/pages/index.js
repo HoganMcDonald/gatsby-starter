@@ -20,12 +20,13 @@ class HomePage extends React.Component {
       frontmatter: announcementBar
     } = data.announcementBarData.edges[0].node;
     const { frontmatter: navBar } = data.navbarData.edges[0].node;
+    const { frontmatter: footer } = data.footerData.edges[0].node;
     const {
       seo: { title: seoTitle, description: seoDescription, browserTitle }
     } = home;
 
     return (
-      <Layout announcementBar={announcementBar} navBar={navBar}>
+      <Layout announcementBar={announcementBar} navBar={navBar} footer={footer}>
         <Helmet>
           <meta name="title" content={seoTitle} />
           <meta name="description" content={seoDescription} />
