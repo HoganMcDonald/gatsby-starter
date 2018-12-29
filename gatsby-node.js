@@ -27,11 +27,13 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    // Filter out the footer, navbar, and meetups so we don't create pages for those
+    // Filter out the footer, navbar, and announcementBar so we don't create pages for those
     const postOrPage = result.data.allMarkdownRemark.edges.filter(edge => {
-      if (edge.node.frontmatter.templateKey === 'navbar') {
-        return false;
-      } else if (edge.node.frontmatter.templateKey === 'footer') {
+      if (
+        ['navbar', 'footer', 'announcementBar'].includes(
+          edge.node.frontmatter.templateKey
+        )
+      ) {
         return false;
       }
     });
