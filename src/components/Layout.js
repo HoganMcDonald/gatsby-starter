@@ -1,17 +1,30 @@
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
 import AnnouncementBar from './AnnouncementBar';
 import NavBar from './NavBar';
+import Footer from './Footer';
+
+const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Main = styled.main`
+  flex: 1 0 auto;
+`;
 
 class Layout extends PureComponent {
   render() {
     const { children, announcementBar, navBar } = this.props;
     return (
-      <main>
+      <Container>
         <AnnouncementBar wait={2000} {...announcementBar} />
         <NavBar {...navBar} />
-        {children}
-      </main>
+        <Main>{children}</Main>
+        <Footer />
+      </Container>
     );
   }
 }
