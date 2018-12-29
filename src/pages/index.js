@@ -7,9 +7,9 @@ import Layout from '../components/Layout';
 import Hero from '../components/Hero';
 
 export const HomePageTemplate = ({ home }) => (
-  <section>
+  <div>
     <Hero title={home.seo.title} subTitle={home.seo.description} />
-  </section>
+  </div>
 );
 
 class HomePage extends React.Component {
@@ -19,12 +19,13 @@ class HomePage extends React.Component {
     const {
       frontmatter: announcementBar
     } = data.announcementBarData.edges[0].node;
+    const { frontmatter: navBar } = data.navbarData.edges[0].node;
     const {
       seo: { title: seoTitle, description: seoDescription, browserTitle }
     } = home;
 
     return (
-      <Layout announcementBar={announcementBar}>
+      <Layout announcementBar={announcementBar} navBar={navBar}>
         <Helmet>
           <meta name="title" content={seoTitle} />
           <meta name="description" content={seoDescription} />
