@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
+import { DeviceProvider } from '../utils/withMedia';
 import AnnouncementBar from './AnnouncementBar';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -19,12 +20,14 @@ class Layout extends PureComponent {
   render() {
     const { children, announcementBar, navBar, footer } = this.props;
     return (
-      <Container>
-        <AnnouncementBar wait={2000} {...announcementBar} />
-        <NavBar {...navBar} />
-        <Main>{children}</Main>
-        <Footer {...footer} />
-      </Container>
+      <DeviceProvider>
+        <Container>
+          <AnnouncementBar wait={2000} {...announcementBar} />
+          <NavBar {...navBar} />
+          <Main>{children}</Main>
+          <Footer {...footer} />
+        </Container>
+      </DeviceProvider>
     );
   }
 }

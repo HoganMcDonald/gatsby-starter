@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { withDevice } from '../utils/withMedia';
 import { white, link } from '../styles/theme';
 
 const Nav = styled.nav`
@@ -88,4 +89,4 @@ NavBar.propTypes = {
   logoImage: PropTypes.object.isRequired
 };
 
-export default NavBar;
+export default withDevice(NavBar);

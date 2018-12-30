@@ -90,7 +90,13 @@ class AnnouncementBar extends Component {
 
     return (
       <Bar role="alert" out={!this.state.show}>
-        <Message>{message}</Message>
+        {linkURL ? (
+          <a href={linkURL}>
+            <Message>{message}</Message>
+          </a>
+        ) : (
+          <Message>{message}</Message>
+        )}
         <Button onClick={() => this.setState({ show: false })}>
           <CloseIcon />
         </Button>
