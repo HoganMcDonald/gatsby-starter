@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Svg = styled.svg`
-  width: ${props => props.size || '1rem'};
+  width: ${props => (props.size ? `${props.size}rem` : '1rem')};
 `;
 
 const Line = styled.line`
   fill: none;
   stroke: currentColor;
-  stroke-width: ${props => props.size * 0.4 || '0.4rem'};
+  stroke-width: 6px;
 `;
 
 class CloseIcon extends PureComponent {
@@ -21,8 +21,18 @@ class CloseIcon extends PureComponent {
         {...this.props}
       >
         <g transform="translate(-582 650)">
-          <Line x1="24" y2="24" transform="translate(327.5 23.5)" />
-          <Line x1="24" y2="24" transform="translate(351.5 23.5) rotate(90)" />
+          <Line
+            size={this.props.size}
+            x1="24"
+            y2="24"
+            transform="translate(327.5 23.5)"
+          />
+          <Line
+            size={this.props.size}
+            x1="24"
+            y2="24"
+            transform="translate(351.5 23.5) rotate(90)"
+          />
         </g>
       </Svg>
     );

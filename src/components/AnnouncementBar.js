@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { withDevice } from '../utils/withMedia';
 import CloseIcon from '../svgs/CloseIcon';
 import { light, success, dark } from '../styles/theme';
 
@@ -28,7 +29,8 @@ const fadeOut = keyframes`
 const Bar = styled.div`
   z-index: 1;
   position: fixed;
-  top: 0;
+  top: ${props => (props.device === 'large' ? 0 : null)};
+  bottom: ${props => (props.device === 'large' ? null : 0)};
   left: 0;
   right: 0;
   height: 2rem;
@@ -91,10 +93,10 @@ class AnnouncementBar extends Component {
   }
 
   render() {
-    const { message, linkURL } = this.props;
+    const { message, linkURL, device } = this.props;
 
     return (
-      <Bar role="alert" out={!this.state.show}>
+      <Bar role="alert" out={!this.state.show} device={device}>
         {linkURL ? (
           <Link href={linkURL}>
             <Message>{message}</Message>
@@ -113,7 +115,8 @@ class AnnouncementBar extends Component {
 AnnouncementBar.propTypes = {
   wait: PropTypes.number.isRequired,
   message: PropTypes.string.isRequired,
-  linkURL: PropTypes.string
+  linkURL: PropTypes.string,
+  device: PropTypes.string.isRequired
 };
 
-export default AnnouncementBar;
+export default withDevice(AnnouncementBar);

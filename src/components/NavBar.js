@@ -1,12 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { withDevice } from '../utils/withMedia';
-import { white, link } from '../styles/theme';
+import { white, link, black } from '../styles/theme';
+import MenuIcon from '../svgs/MenuIcon';
+import CloseIcon from '../svgs/CloseIcon';
+import MobileMenu from '../components/MobileMenu';
 
 const Nav = styled.nav`
+  z-index: 1;
   position: fixed;
   top: 2rem;
   left: 2rem;
@@ -60,10 +64,39 @@ const A = styled.a`
   ${linkStyles}
 `;
 
-class NavBar extends PureComponent {
+const MenuToggle = styled.button`
+  z-index: 9999;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 150ms ease-out;
+  cursor: pointer;
+  color: ${props => (props.open ? white : black)}
+
+  &:focus {
+    color: ${link};
+    outline: none;
+  }
+`;
+
+class NavBar extends Component {
+  state = {
+    open: false
+  };
+
   render() {
-    const { menuItems = [], logoImage } = this.props;
-    return (
+    const { menuItems = [], logoImage, device } = this.props;
+    const { open } = this.state;
+
+    return device === 'large' ? (
       <Nav>
         <LogoLink to={'/'}>
           <Logo src={logoImage.image} alt={logoImage.imageAlt} />
@@ -80,6 +113,18 @@ class NavBar extends PureComponent {
           ))}
         </LinkList>
       </Nav>
+    ) : (
+      <>
+        <MenuToggle open={open} onClick={() => this.setState({ open: !open })}>
+          {open ? <CloseIcon size={2} /> : <MenuIcon size={2} />}
+        </MenuToggle>
+        {open && (
+          <MobileMenu
+            menuItems={menuItems}
+            onClick={() => this.setState({ open: false })}
+          />
+        )}
+      </>
     );
   }
 }

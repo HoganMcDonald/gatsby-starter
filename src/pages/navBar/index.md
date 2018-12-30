@@ -9,5 +9,5 @@ menuItems:
     linkURL: /
   - label: about
     linkType: internal
-    linkURL: /
+    linkURL: /about
 ---
