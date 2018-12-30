@@ -41,10 +41,15 @@ const Bar = styled.div`
   transition: visibility 250ms ease-out;
 `;
 
+const Link = styled.a`
+  max-width: calc(100% - 4rem);
+  text-decoration: none;
+`;
+
 const Message = styled.h4`
   color: ${light};
   margin: 0;
-  max-width: calc(100% - 4rem);
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
 `;
@@ -91,9 +96,9 @@ class AnnouncementBar extends Component {
     return (
       <Bar role="alert" out={!this.state.show}>
         {linkURL ? (
-          <a href={linkURL}>
+          <Link href={linkURL}>
             <Message>{message}</Message>
-          </a>
+          </Link>
         ) : (
           <Message>{message}</Message>
         )}
