@@ -12,7 +12,10 @@ const { Provider, Consumer } = createContext('large');
 class DeviceProvider extends Component {
   calcDevice = () => {
     for (let breakpoint in breakpoints) {
-      const { matches } = window.matchMedia(breakpoints[breakpoint]);
+      const { matches } =
+        typeof window !== `undefined`
+          ? window.matchMedia(breakpoints[breakpoint])
+          : 'large';
       if (matches) return breakpoint;
     }
   };
