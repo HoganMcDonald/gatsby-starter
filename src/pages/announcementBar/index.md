@@ -1,5 +1,6 @@
 ---
 templateKey: announcement-bar
-message: This is an announcement
-linkURL: /
+message: See the repo on Github
+linkURL: 'https://github.com/HoganMcDonald/gatsby-starter'
 ---
+
