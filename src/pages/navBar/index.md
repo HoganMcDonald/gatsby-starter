@@ -7,7 +7,8 @@ menuItems:
   - label: home
     linkType: internal
     linkURL: /
-  - label: about
-    linkType: internal
-    linkURL: /about
+  - label: github
+    linkType: external
+    linkURL: 'https://github.com/HoganMcDonald/gatsby-starter'
 ---
+
