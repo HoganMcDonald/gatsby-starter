@@ -2,23 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { HomePageTemplate } from '../../pages/index';
 
-const AboutPagePreview = ({ entry, widgetFor }) => {
-  const home = {
-    seo: {
-      title: entry.getIn(['data', 'title']),
-      description: entry.getIn(['data', 'description']),
-      browserTitle: entry.getIn(['data', 'browserTitle'])
-    }
-  };
+import CSSInjector from '../CSSInjector';
 
-  return <HomePageTemplate home={home} />;
+const HomePagePreview = ({ entry }) => {
+  const home = entry.getIn(['data']).toJS();
+  return (
+    <CSSInjector>
+      <HomePageTemplate home={home} />
+    </CSSInjector>
+  );
 };
 
-AboutPagePreview.propTypes = {
+HomePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func
-  }),
-  widgetFor: PropTypes.func
+  })
 };
 
-export default AboutPagePreview;
+export default HomePagePreview;
