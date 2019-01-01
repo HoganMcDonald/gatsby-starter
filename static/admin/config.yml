@@ -12,7 +12,7 @@ collections:
   - name: 'navigation'
     label: 'Navigation'
     files:
-      - file: 'src/pages/navbar/index.md'
+      - file: 'src/pages/navBar/index.md'
         label: 'Navbar'
         name: 'navbar'
         fields:
