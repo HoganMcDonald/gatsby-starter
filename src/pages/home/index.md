@@ -1,7 +1,8 @@
 ---
 templateKey: home-page
 seo:
-  title: changeme
-  description: changeme
-  browserTitle: changeme
+  browserTitle: Gatsby starter
+  description: 'Uses styled components, netlify-cms, and a few other fun things.'
+  title: Gatsby Netlify CMS Starter
 ---
+
